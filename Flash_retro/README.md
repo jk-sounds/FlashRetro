@@ -1,6 +1,10 @@
-# FlashRetro: Efficient Retrosynthesis Prediction with Latent-Space MeanFlow Matching and Inversion
+# FlashRetro: Efficient Retrosynthesis Prediction with Integral Flow Matching and Latent Inversion
 
-**FlashRetro** is a state-of-the-art generative model for retrosynthesis prediction (predicting reactants from products). It builds upon flow-matching and introduces two key mechanisms—**Latent MeanFlow Objective** and **Latent Velocity Inversion**—to achieve superior accuracy and efficiency.
+**FlashRetro** is a state-of-the-art generative model for retrosynthesis prediction, aiming to predict reactants from a given product molecule. It introduces an **Integral Flow Matching (IFM)** framework with **Latent Inversion** to achieve fast and accurate one-step retrosynthesis generation.
+
+Unlike conventional diffusion or flow-matching methods that rely on iterative ODE/SDE sampling, FlashRetro learns finite-interval integral transport directly in latent space. This training objective is aligned with a principled **1-NFE Latent Inversion** inference rule, which maps a noise latent conditioned on the product latent to the predicted reactant latent using a single learned integral-transport update.
+
+By avoiding test-time numerical integration, FlashRetro significantly improves inference efficiency while maintaining strong retrosynthesis accuracy. Experiments on USPTO-50K show that FlashRetro achieves superior low-latency Top-1/Top-3 performance and provides substantial speedups over iterative diffusion- and flow-based retrosynthesis baselines.
 
 
 
